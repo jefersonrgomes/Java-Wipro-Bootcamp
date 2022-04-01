@@ -1,4 +1,4 @@
-package aula02;
+package aula02.curso;
 
 import java.util.Locale;
 
