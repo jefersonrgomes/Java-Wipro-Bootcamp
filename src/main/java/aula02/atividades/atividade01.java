@@ -7,13 +7,20 @@ import java.util.Scanner;
 public class atividade01 {
 /***
  Atividade 1
+    Grupo 06
+        Benivaldo Honorio
+        Wesley Fernandes
+        Viviane Viana
+        Natalie
+        Jeferson Gomes
 
- Escreva um programa Java que gera um número aleatório (randômico) entre 0 e 10
- (incluindo estes dois valores) e peça ao usuário para adivinhá-lo.
- Use um laço while para
- registrar as tentativas feitas e, a cada tentativa, dê dicas informando se o número gerado é
- maior ou menor que a tentativa feita. Finalmente mostre a quantidade de tentativas feitas até
- que o número fosse acertado.
+
+ Escreva um programa Java que
+ [x] Gera um número aleatório (randômico) entre 0 e 10 (incluindo estes dois valores)
+ [x] Peça ao usuário para adivinhá-lo.
+ [x] Use um laço while para registrar as tentativas feitas
+ [x] E a cada tentativa, dê dicas informando se o número gerado é maior ou menor que a tentativa feita.
+ [x] Finalmente mostre a quantidade de tentativas feitas até que o número fosse acertado.
 
  HELPERS:
  Recebendo valores em java: https://www.devmedia.com.br/como-funciona-a-classe-scanner-do-java/28448

@@ -6,6 +6,12 @@ public class atividade02 {
 
     /***
      Atividade 2.
+        Grupo 06
+            Benivaldo Honorio
+            Wesley Fernandes
+            Viviane Viana
+            Natalie
+            Jeferson Gomes
 
      [x] Faça um programa para receber o nome de um aluno e informar 2 notas,
      [x] Calcular a média do aluno
