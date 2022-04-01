@@ -1,5 +1,6 @@
 # Java-Wipro-Bootcamp
-![image](https://user-images.githubusercontent.com/10172471/161183286-5f0a3263-015f-4497-a383-4edae80623c8.png)
+
+![wiproBootcamp](https://user-images.githubusercontent.com/10172471/161183714-e9718b88-2da6-4907-82d8-21c5c2e36748.png)
 
 Wipro Bootcamp é um programa de formação NannoDeegre oferecido pela Multinascional Wipro em parceria com a escola Gama Academy.
 
