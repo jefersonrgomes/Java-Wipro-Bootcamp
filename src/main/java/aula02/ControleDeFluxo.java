@@ -1,4 +1,4 @@
-package aula1;
+package aula02;
 
 public class ControleDeFluxo {
 
