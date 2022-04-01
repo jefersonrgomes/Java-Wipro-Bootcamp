@@ -9,7 +9,7 @@ public class atividade03 {
             Benivaldo Honorio
             Wesley Fernandes
             Viviane Viana
-            Natalie
+            Natalie Bozzon
             Jeferson Gomes
 
      [x] Faça um programa para receber os nomes de 4 candidatos a líder de uma turma

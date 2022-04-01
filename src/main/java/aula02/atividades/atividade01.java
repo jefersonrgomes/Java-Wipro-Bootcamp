@@ -11,7 +11,7 @@ public class atividade01 {
         Benivaldo Honorio
         Wesley Fernandes
         Viviane Viana
-        Natalie
+        Natalie Bozzon
         Jeferson Gomes
 
 
@@ -48,11 +48,6 @@ public static void main(String[] args) {
         if(numero < numeroTentativa) {
             JOptionPane.showMessageDialog(null, "o numero digitado é maior.");
         }
-
     }
-
-
-
 }
-
 }

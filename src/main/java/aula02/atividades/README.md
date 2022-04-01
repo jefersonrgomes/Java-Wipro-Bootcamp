@@ -6,7 +6,7 @@
 - Benivaldo Honorio
 - Wesley Fernandes
 - Viviane Viana
-- Natalie
+- Natalie Bozzon
 - Jeferson Gomes
 
 1. Escreva um programa Java que gera um número aleatório (randômico) entre 0 e 10

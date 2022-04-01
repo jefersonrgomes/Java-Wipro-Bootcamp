@@ -10,7 +10,7 @@ public class atividade02 {
             Benivaldo Honorio
             Wesley Fernandes
             Viviane Viana
-            Natalie
+            Natalie Bozzon
             Jeferson Gomes
 
      [x] Faça um programa para receber o nome de um aluno e informar 2 notas,
