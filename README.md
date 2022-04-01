@@ -2,7 +2,7 @@
 
 ![wiproBootcamp](https://user-images.githubusercontent.com/10172471/161183714-e9718b88-2da6-4907-82d8-21c5c2e36748.png)
 
-Wipro Bootcamp é um programa de formação NannoDeegre oferecido pela Multinascional Wipro em parceria com a escola Gama Academy.
+Wipro Bootcamp é um programa de formação NannoDeegre oferecido pela multinacional Wipro em parceria com a escola Gama Academy.
 
 ## 01 - Introdução e Aquecimento
 ### 01.1 - Métodologia Agil com Scrum.
