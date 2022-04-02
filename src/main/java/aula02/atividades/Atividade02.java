@@ -21,22 +21,23 @@ public class Atividade02 {
     ***/
     public static void main(String[] args) {
 
-        System.out.printf("Bem vindo a Calculadora de Médias%n1 - Informe o nome do Aluno:%n");
+        System.out.printf("Bem vindo a Calculadora de Médias %n" +
+                "Informe o nome do Aluno: %n");
+
         Scanner sc = new Scanner(System.in);
         String nomeAluno = sc.next();
 
-        System.out.printf("2 - Informe a primeira Nota%n");
+        System.out.printf("2 - Informe a primeira Nota %n");
         float nota1 = Float.parseFloat(sc.next());
 
-        System.out.printf("3 - Informe a segunda Nota%n");
+        System.out.printf("3 - Informe a segunda Nota %n");
         float nota2 = Float.parseFloat(sc.next());
 
         float media = (nota1 + nota2) / 2;
 
-        if(media >= 6)
-        {
+        if(media >= 6){
             System.out.printf("Parabens você foi Aprovado %n" +
-                    "| Historico Escolar %n" +
+                    "| Historico Escolar %n"  +
                     "| Nome do Aluno | %s %n" +
                     "| Primeira Nota | %s %n" +
                     "| Segunda Nota  | %s %n" +
@@ -45,9 +46,8 @@ public class Atividade02 {
                     "| Status        | Aprovado %n" +
                     "|--- --- --- --- --- --- %n", nomeAluno , nota1 , nota2 , media);
         }
-        else{ System.out.printf("Não foi desta vez, mas voce pode se preparar e tentar novamente!%n" +
-                "%n" +
-                "| Historico Escolar %n" +
+        else{ System.out.printf("Não foi desta vez, mas voce pode se preparar e tentar novamente! %n" +
+                "| Historico Escolar %n"  +
                 "| Nome do Aluno | %s %n" +
                 "| Primeira Nota | %s %n" +
                 "| Segunda Nota  | %s %n" +
