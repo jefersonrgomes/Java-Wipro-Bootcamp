@@ -4,8 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-public class atividade03 {
-
+public class Atividade03 {
     /***
      Atividade 3.
         Grupo 06
@@ -53,7 +52,6 @@ public class atividade03 {
                     }
                 });
             }
-
             else{
                 votosFinalizados = true;
             }
@@ -66,7 +64,6 @@ public class atividade03 {
                 qtdVotos = candidataComp.getVotos();
             }
         }
-
         for(Candidata candidataVencedor : candidatos) {
             if(candidataVencedor.getId() == idVendedor) {
                 System.out.println("Candidato Vencedor: "+candidataVencedor.getNome() +
