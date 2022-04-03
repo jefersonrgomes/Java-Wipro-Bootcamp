@@ -39,19 +39,32 @@ public class ProjetoMercadoDigital {
  https://www.alura.com.br/artigos/iterando-por-um-hashmap-em-java?gclid=Cj0KCQjw6J-SBhCrARIsAH0yMZjWlIxQjs5YxdCBoQFQlz1BzMRVEnwH0ab2HRf0mVmGnnBq_DS75ckaAvOfEALw_wcB
 
  ***/
-
+        //VARIAVEIS DE CONTROLE PARA OS ITENS DO MERCADO
         String[] produtos = {"Leite", "Cereal", "Arroz", "Atum", "Feijão", "Azeite", "Óleo", "Sabão", "Sal", "Açucar"};
         Integer [] estoque = {10,10,10,10,10,10,10,10,10,10};
         Float [] precos = {4.57f, 3.02f,9.43f,3.55f,6.55f,4.55f,7.33f,1.99f,3.82f,4.29f };
 
+        //VARIAVEIS DE CONTROLE PARA CARRINHO DE COMPRA
         ArrayList<Integer> carrinhoCodigoProduto = new ArrayList<>();
         ArrayList<Integer> carrinhoQuantidade = new ArrayList<>();
 
+        pratileiraMercado(produtos,estoque,precos,carrinhoCodigoProduto,carrinhoQuantidade);
+
+    }
+
+    // === === === METODOS === === === ===
+    // PRATILEIRA DO MERCADO
+    public static void pratileiraMercado(
+            String[] produtos,
+            Integer [] estoque,
+            Float [] precos,
+            ArrayList<Integer> carrinhoCodigoProduto,
+            ArrayList<Integer> carrinhoQuantidade)
+    {
         boolean checker = false;
         do {
-            String choice;
+            int choice;
             int code = 0, quantidade = 0;
-            Scanner sc = new Scanner(System.in);
 
             System.out.printf("%n\t\t\t WIPRO STORE%n");
             System.out.println("--- --- --- --- --- --- --- --- --- --- --- ---");
@@ -60,21 +73,20 @@ public class ProjetoMercadoDigital {
                 System.out.printf("  %s \t\t %s\t\t\t %s \t\t %s %n", x + 1, produtos[x], estoque[x], precos[x]);
             }
             System.out.printf("--- --- --- --- --- --- --- --- --- --- --- ---\n");
-            System.out.println("Olá! Digite o código do produto desejado: ");
-            code = sc.nextInt();
 
+            code = validaEntradaDoUsuarioSeInteiro("\nCOD PROD\nDigite o código do produto desejado: ", "\nERROR - Valor Invalido\nO valor digitado não corresponde a nenhum produto da prateleira!\nInforme um valor numerico entre 1 a 10");
 
-                if(code > produtos.length){
-                    System.out.println("O produto informado não esta na lista no momento, selecione outro produto");
-                    continue;
-                }
-                else
-                {
-                    carrinhoCodigoProduto.add(code);
-                }
+            if(code > produtos.length || code < 1){
+                System.out.println("O produto informado não esta na lista no momento, selecione outro produto");
+                continue;
+            }
+            else
+            {
+                carrinhoCodigoProduto.add(code);
+            }
 
-                System.out.println("Olá! Digite a quantidade que deseja colocar no carrinho: ");
-            quantidade = sc.nextInt();
+            quantidade = validaEntradaDoUsuarioSeInteiro("\nQTN PROD\nDigite a quantidade que deseja colocar no carrinho: ", "\nERROR - Valor Invalido\nInforme um valor numerico entre 1 a 10");
+
 
 
             if(quantidade > estoque[code]){
@@ -87,32 +99,81 @@ public class ProjetoMercadoDigital {
             }
 
             System.out.println("Deseja continuar as compras?");
-            System.out.printf("--- --- --- --- --- --- --- --- --- ---%n"+
-                    "[S] - Incluir mais itens no seu carrido.%n" +
-                    "[N] - Ir para carrinho de compras e formas de pagamento.%n");
-            System.out.println("--- --- --- --- --- --- --- --- --- ---");
-            choice = sc.next();
-            if(choice.matches("sim") || choice.matches("s")){
+            System.out.printf("--- --- --- --- --- --- --- --- --- ---%n");
+            choice = validaEntradaDoUsuarioSeInteiro(
+            "Opção Invalida",
+            "[1] - Incluir mais itens no seu carrido.\n[2] - Ir para carrinho de compras e formas de pagamento.\n",
+            "--- --- --- --- --- --- --- --- --- ---",
+            "[1-2]" );
+
+            if(choice == 1){
                 System.out.println("saindo da lista");
                 continue;
             }
-            else if(choice.matches("nao") || choice.matches("n"))
+            else if(choice == 2)
             {
-            carrinhoDeCompras(carrinhoCodigoProduto,carrinhoQuantidade,produtos,precos);
-
-            checker = true;
+                carrinhoDeCompras(carrinhoCodigoProduto,carrinhoQuantidade,produtos,precos);
+                checker = true;
             }
-
         }while(!checker);
     }
 
-    // === === === === === === === ===
-    // CARRINHO DE COMPRAS
 
-    public static void carrinhoDeCompras(
-            ArrayList<Integer> carrinhoCodigoProduto, ArrayList<Integer> carrinhoQuantidade,
-            String[] produtos, Float[] precos
-    )
+
+    //METODO VALIDA ENTRADA DO USUARIO SE É NUMERO INTEIRO - 1
+    public static int validaEntradaDoUsuarioSeInteiro(
+            String textIn,
+            String textOut)
+    {
+        Scanner nv = new Scanner(System.in);
+        String valorDigitado;
+        boolean checker=false;
+        int inteiroRetorno=0;
+
+        do {
+            System.out.println(textIn);
+            valorDigitado=nv.next();
+            if(valorDigitado.matches("[0-9]*")) {
+                inteiroRetorno = Integer.parseInt(valorDigitado);
+                checker = true;
+            }
+            else{
+                System.out.println(textOut);
+                continue;
+            }
+        }while(!checker);
+        return inteiroRetorno;
+    }
+
+    //METODO VALIDA ENTRADA DO USUARIO SE É NUMERO INTEIRO - 2
+    public static int validaEntradaDoUsuarioSeInteiro(
+            String txtAlert,
+            String textIn,
+            String textOut,
+            String regex)
+    {
+        Scanner nv = new Scanner(System.in);
+        String valorDigitado;
+        boolean checker=false;
+        int inteiroRetorno=0;
+
+        do {
+            System.out.println(textIn);
+            valorDigitado=nv.next();
+            if(valorDigitado.matches(regex)) {
+                inteiroRetorno = Integer.parseInt(valorDigitado);
+                checker = true;
+            }
+            else{
+                System.out.println(textOut);
+                System.out.println(txtAlert);
+                continue;
+            }
+        }while(!checker);
+        return inteiroRetorno;    }
+
+    // METODO CARRINHO DE COMPRAS
+    public static void carrinhoDeCompras(@NotNull ArrayList<Integer> carrinhoCodigoProduto, ArrayList<Integer> carrinhoQuantidade, String[] produtos, Float[] precos)
     {
         float valorTotalDeCompra = 0;
         float valorImposto=0;
@@ -138,20 +199,62 @@ public class ProjetoMercadoDigital {
         System.out.printf("%n%n--- --- --- --- --- --- --- --- --- ---%n"+
                         "[1] - Escolher forma de pagamento. %n" +
                         "[2] - Cancelar compra e esvaziar carrinho. %n" +
-                        "--- --- --- --- --- --- --- --- --- ---");
+                        "--- --- --- --- --- --- --- --- --- ---%n%n");
+
+        boolean checker = false;
+        do{
+            Scanner sc = new Scanner(System.in);
+            String choice = sc.next();
+        if (choice.matches("[1-2]*"))
+        {
+            if (choice.matches("1"))
+            {
+                int payMethod = formasDePagamento();
+
+                if(payMethod == 1)
+                {
+                    float descontoVintePorcento = ((20.0f/100) * valorTotalDeCompra);
+                    System.out.println("\nPagamento feito em dinheiro");
+                    System.out.printf("Valor total sem desconto R$: %s%n" , valorTotalDeCompra);
+                    System.out.printf("Desconto de 20 porcento para pagamento A Vista R$: %s%n", descontoVintePorcento);
+                    System.out.printf("Valor Total com Desconto aplicado R$: %s%n", valorTotalDeCompra - descontoVintePorcento);
+
+                }
+
+
+
+            }
+            else if (choice.matches("2"))
+            {
+                carrinhoCodigoProduto.clear();
+                carrinhoQuantidade.clear();
+                System.out.println("Carrinho limpo com sucesso - Obrigado volte sempre");
+                checker = true;
+            }
+        }
+        else{
+            System.out.println("Valor informado não aceito");
+            System.out.printf("%n%n--- --- --- --- --- --- --- --- --- ---%n"+
+                    "[1] - Escolher forma de pagamento. %n" +
+                    "[2] - Cancelar compra e esvaziar carrinho. %n" +
+                    "--- --- --- --- --- --- --- --- --- ---%n%n");
+        }
+        }while (!checker);
 
     }
 
-    // === === === === === === === ===
-    // FORMAS DE PAGAMENTO
-    public void formasDePagamento(){
-        System.out.printf("\t\t FORMAS DE PAGAMENTO");
-        System.out.printf(
-                "--- --- --- --- --- --- --- --- --- ---%n"+
-                        "[1] - À vista em dinheoro ou cartão MASTERCARD, recebe 20% de desconto%n" +
-                        "[2] - À vista no cartão de crédito, recebe 15% de desconto%n" +
-                        "[3] - Em duas vezes, preço normal de etiqueta sem juros%n" +
-                        "[4] - Em três vezes, preço normal de etiqueta mais juros de 10% %n%n" +
-                        "Qual seria a forma de pagamento ?");
+    // METODO FORMAS DE PAGAMENTO
+    public static int formasDePagamento(){
+        int choice;
+        choice = validaEntradaDoUsuarioSeInteiro("Opção Invalida\nEscolha entre 1 a 4 uma das opções disponiveis para pagamento\n",
+                "[1] - À vista em dinheoro ou cartão MASTERCARD, recebe 20 porcento de desconto\n" +
+                      "[2] - À vista no cartão de crédito, recebe 15 porcento de desconto\n" +
+                      "[3] - Em duas vezes, preço normal de etiqueta sem juros\n" +
+                      "[4] - Em três vezes, preço normal de etiqueta mais juros de 10 porcento\n" +
+                      "Qual seria a forma de pagamento ?",
+                "--- --- --- --- --- --- --- --- --- ---",
+                "[1-4]");
+
+        return choice;
     }
 }
