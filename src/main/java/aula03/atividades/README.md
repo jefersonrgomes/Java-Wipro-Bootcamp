@@ -8,31 +8,33 @@ Atividades da Aula 03
 
 ### Criar uma Loja virtual com Carrinho de Compras!!!
 
-Em resumo vamos buscar produtos por código, adicionar quantidades dos itens selecionados, somar os
-preços de diversos itens que queremos comprar e adicionar desconto dependendo da forma do
+## Resumo 
+- [x] Vamos buscar produtos por código
+- [x] Adicionar quantidades dos itens selecionados, 
+- [x] Somar os preços de diversos itens que queremos comprar e adicionar desconto dependendo da forma do
 pagamento.
 
-## Requisitos:
+## Requisitos
 
 ### ESTOQUE
 ![image](https://user-images.githubusercontent.com/10172471/161419717-58c7b625-e30c-4ac0-a5a0-0aba39b9e0be.png)
-- [x] - A nossa loja deve conter estoque;
-- [ ] - Caso produto esteja indisponível deve retornar a mensagem para o cliente “Produto Indisponível”;
+- [x] A nossa loja deve conter estoque;
+- [ ] Caso produto esteja indisponível deve retornar a mensagem para o cliente “Produto Indisponível”;
 
 ### FORMAS DE PAGAMENTO
 ![image](https://user-images.githubusercontent.com/10172471/161419807-91ebd605-db80-428a-a3ba-451c99f20829.png)
-- [x] - Deverá ter 3 formas de pagamento;
-- [x] - À vista (dinheiro, pix ou cartão MasterdCard) tem 20% de desconto;
-- [x] - À vista no crédito tem 10% de desconto;
-- [x] - Parcelado em até 3x não tem desconto;
+- [x] Deverá ter 3 formas de pagamento;
+- [x] À vista (dinheiro, pix ou cartão MasterdCard) tem 20% de desconto;
+- [x] À vista no crédito tem 10% de desconto;
+- [x] Parcelado em até 3x não tem desconto;
 
 ### RETORNO DE NOTA FISCAL
-- [] - Deve retornar a nota fiscal com o valor pago de tributos de 9% sobre a compra
+- [ ] Deve retornar a nota fiscal com o valor pago de tributos de 9% sobre a compra
 ATENÇÂO: (Esse valor não deve ser somado ao total do carrinho, somente ser exibido na nota fiscal);
 
 ### OBSERVAÇÕES FINAIS
-- [x] - O Projeto pode ser feito somente em uma classe ou da forma que acharem melhor;
-- [x] - O PROGRAMA TEM QUE RODAR NO CONSOLE.
+- [x] O Projeto pode ser feito somente em uma classe ou da forma que acharem melhor;
+- [x] O PROGRAMA TEM QUE RODAR NO CONSOLE.
 
 #
 
