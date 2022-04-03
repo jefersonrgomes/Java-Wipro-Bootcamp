@@ -18,7 +18,12 @@
 </br>
 
 ## 03 - Programação Orientada a Objetos em Java
-### - 03.1 - Em Breve
+### - 03.1 - Listas e Arrays em Java
+
+## Desafio de Projeto - Criando um Mercado Digital em Java
+
+![image](https://user-images.githubusercontent.com/10172471/161419717-58c7b625-e30c-4ac0-a5a0-0aba39b9e0be.png)
+
 </br>
 
 ## 04 - Frameworks Java
