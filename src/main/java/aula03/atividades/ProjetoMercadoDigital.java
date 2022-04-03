@@ -18,13 +18,15 @@ public class ProjetoMercadoDigital {
 
  Requisitos:
  [x] - A nossa loja deve conter estoque;
- [] - Caso produto esteja indisponível deve retornar a mensagem para o cliente “Produto Indisponível”;
- [] - Deverá ter 3 formas de pagamento;
- [] - À vista (dinheiro, pix ou cartão MasterdCard) tem 20% de desconto;
+ [x] - Caso produto esteja indisponível deve retornar a mensagem para o cliente “Produto Indisponível”;
+
+ [x] - Deverá ter 3 formas de pagamento;
+ [x] - À vista (dinheiro, pix ou cartão MasterdCard) tem 20% de desconto;
  [] - À vista no crédito tem 10% de desconto;
  [] - Parcelado em até 3x não tem desconto;
- [] - Deve retornar a nota fiscal com o valor pago de tributos de 9% sobre a compra (Esse valor não deve ser
-        somado ao total do carrinho, somente ser exibido na nota fiscal);
+
+ [] - Deve retornar a nota fiscal com o valor pago de tributos de 9% sobre a compra
+ ATENÇÂO: (Esse valor não deve ser somado ao total do carrinho, somente ser exibido na nota fiscal);
 
  [x] - Caprichem no README lá vocês podem contar como fizeram e como foi o trabalho em equipe.
  [x] - O Projeto pode ser feito somente em uma classe ou da forma que acharem melhor;
@@ -247,13 +249,12 @@ public class ProjetoMercadoDigital {
     public static int formasDePagamento(){
         int choice;
         choice = validaEntradaDoUsuarioSeInteiro("Opção Invalida\nEscolha entre 1 a 4 uma das opções disponiveis para pagamento\n",
-                "[1] - À vista em dinheoro ou cartão MASTERCARD, recebe 20 porcento de desconto\n" +
-                      "[2] - À vista no cartão de crédito, recebe 15 porcento de desconto\n" +
-                      "[3] - Em duas vezes, preço normal de etiqueta sem juros\n" +
-                      "[4] - Em três vezes, preço normal de etiqueta mais juros de 10 porcento\n" +
+                "[1] - À vista em dinheiro/Pix ou cartão MASTERCARD, recebe 20 porcento de desconto\n" +
+                      "[2] - À vista no cartão de crédito, recebe 10 porcento de desconto\n" +
+                      "[3] - Em três vezes, preço normal de etiqueta sem juros\n" +
                       "Qual seria a forma de pagamento ?",
                 "--- --- --- --- --- --- --- --- --- ---",
-                "[1-4]");
+                "[1-3]");
 
         return choice;
     }
