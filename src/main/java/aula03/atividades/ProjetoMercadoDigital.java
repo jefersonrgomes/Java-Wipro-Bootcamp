@@ -65,6 +65,7 @@ public class ProjetoMercadoDigital {
     {
         boolean checker = false;
         do {
+
             int choice;
             int code = 0, quantidade = 0;
 
@@ -76,9 +77,9 @@ public class ProjetoMercadoDigital {
             }
             System.out.printf("--- --- --- --- --- --- --- --- --- --- --- ---\n");
 
-            code = validaEntradaDoUsuarioSeInteiro("\nCOD PROD\nDigite o código do produto desejado: ", "\nERROR - Valor Invalido\nO valor digitado não corresponde a nenhum produto da prateleira!\nInforme um valor numerico entre 1 a 10");
-
-            if(code > produtos.length || code < 1){
+            code = validaEntradaDoUsuarioSeInteiro("\nCOD PROD\nDigite o código do produto desejado: ", "\nERROR - Valor Invalido\nO valor digitado não corresponde a nenhum produto da prateleira!\nInforme um valor numerico entre 1 a 10", "[0-9]*");
+            code -= 1;
+            if (code >= produtos.length || code < 0) {
                 System.out.println("O produto informado não esta na lista no momento, selecione outro produto");
                 continue;
             }
@@ -89,15 +90,17 @@ public class ProjetoMercadoDigital {
 
             quantidade = validaEntradaDoUsuarioSeInteiro("\nQTN PROD\nDigite a quantidade que deseja colocar no carrinho: ", "\nERROR - Valor Invalido\nInforme um valor numerico entre 1 a 10");
 
-
-
-            if(quantidade > estoque[code]){
+            if (estoque[code] == 0) {
+                System.out.println("A quantidade informada é maior do que o numero disponivel em estoque");
+                continue;
+            } else if (quantidade > estoque[code]) {
                 System.out.println("A quantidade informada é maior do que o numero disponivel em estoque");
                 continue;
             }
             else
             {
                 carrinhoQuantidade.add(quantidade);
+                estoque[code] -= quantidade;
             }
 
             System.out.println("Deseja continuar as compras?");
@@ -108,8 +111,8 @@ public class ProjetoMercadoDigital {
             "--- --- --- --- --- --- --- --- --- ---",
             "[1-2]" );
 
-            if(choice == 1){
-                System.out.println("saindo da lista");
+            if (choice == 1) {
+                System.out.println("Voltando a prateleira de produtos");
                 continue;
             }
             else if(choice == 2)
@@ -175,8 +178,8 @@ public class ProjetoMercadoDigital {
         return inteiroRetorno;    }
 
     // METODO CARRINHO DE COMPRAS
-    public static void carrinhoDeCompras(@NotNull ArrayList<Integer> carrinhoCodigoProduto, ArrayList<Integer> carrinhoQuantidade, String[] produtos, Float[] precos)
-    {
+    public static boolean carrinhoDeCompras(@NotNull ArrayList<Integer> carrinhoCodigoProduto, ArrayList<Integer> carrinhoQuantidade, String[] produtos, Float[] precos, Integer[] estoque, Integer[] estoqueCopia) {
+
         float valorTotalDeCompra = 0;
         float valorImposto=0;
         System.out.printf("\t\t ITENS NO CARRINHO%n"+
@@ -196,15 +199,17 @@ public class ProjetoMercadoDigital {
         }
         System.out.println("\t\t TOTAL ");
         System.out.printf("TOTAL - O valor total da compra R$: %s%n", valorTotalDeCompra + valorImposto, valorImposto);
-        System.out.printf("IMPOSTOS - Valor total de imposto correspondente a 9 porcento sobre o valor total R$: %s%n", valorImposto);
-        System.out.printf("TOTAL + IMPOSTOS - O valor total da compra com Imposto de 9 porcento é de R$: %s%n", valorTotalDeCompra + valorImposto);
-        System.out.printf("%n%n--- --- --- --- --- --- --- --- --- ---%n"+
-                        "[1] - Escolher forma de pagamento. %n" +
-                        "[2] - Cancelar compra e esvaziar carrinho. %n" +
-                        "--- --- --- --- --- --- --- --- --- ---%n%n");
-
+        //System.out.printf("IMPOSTOS - Valor total de imposto correspondente a 9 porcento sobre o valor total R$: %s%n", valorImposto);
+        //System.out.printf("TOTAL + IMPOSTOS - O valor total da compra com Imposto de 9 porcento é de R$: %s%n", valorTotalDeCompra + valorImposto);
+        System.out.printf("%n%n--- --- --- --- --- --- --- --- --- ---%n" +
+                "[1] - Escolher forma de pagamento. %n" +
+                "[2] - Cancelar compra e esvaziar carrinho. %n" +
+                "--- --- --- --- --- --- --- --- --- ---%n%n");
+        float desconto = 0.0f;
+        float valorASerPago = 0.0f;
         boolean checker = false;
-        do{
+        do {
+
             Scanner sc = new Scanner(System.in);
             String choice = sc.next();
         if (choice.matches("[1-2]*"))
@@ -213,37 +218,61 @@ public class ProjetoMercadoDigital {
             {
                 int payMethod = formasDePagamento();
 
-                if(payMethod == 1)
-                {
-                    float descontoVintePorcento = ((20.0f/100) * valorTotalDeCompra);
-                    System.out.println("\nPagamento feito em dinheiro");
-                    System.out.printf("Valor total sem desconto R$: %s%n" , valorTotalDeCompra);
-                    System.out.printf("Desconto de 20 porcento para pagamento A Vista R$: %s%n", descontoVintePorcento);
-                    System.out.printf("Valor Total com Desconto aplicado R$: %s%n", valorTotalDeCompra - descontoVintePorcento);
-
+                    if (payMethod == 1) {
+                        desconto = ((20.0f / 100) * valorTotalDeCompra);
+                        valorASerPago = valorTotalDeCompra - desconto;
+                    } else if (payMethod == 2) {
+                        desconto = ((10.0f / 100) * valorTotalDeCompra);
+                        valorASerPago = valorTotalDeCompra - desconto;
+                    }else{
+                        desconto = 0.0f;
+                        valorASerPago = valorTotalDeCompra;
+                    }
+                } else if (choice.matches("2")) {
+                    carrinhoCodigoProduto.clear();
+                    carrinhoQuantidade.clear();
+                    System.out.println("Carrinho limpo com sucesso - Obrigado volte sempre");
+                    checker = true;
                 }
-
-
-
+            } else {
+                System.out.println("Valor informado não aceito");
+                System.out.printf("%n%n--- --- --- --- --- --- --- --- --- ---%n" +
+                        "[1] - Escolher forma de pagamento. %n" +
+                        "[2] - Cancelar compra e esvaziar carrinho. %n" +
+                        "--- --- --- --- --- --- --- --- --- ---%n%n");
             }
-            else if (choice.matches("2"))
-            {
-                carrinhoCodigoProduto.clear();
-                carrinhoQuantidade.clear();
-                System.out.println("Carrinho limpo com sucesso - Obrigado volte sempre");
-                checker = true;
-            }
-        }
-        else{
-            System.out.println("Valor informado não aceito");
-            System.out.printf("%n%n--- --- --- --- --- --- --- --- --- ---%n"+
-                    "[1] - Escolher forma de pagamento. %n" +
-                    "[2] - Cancelar compra e esvaziar carrinho. %n" +
-                    "--- --- --- --- --- --- --- --- --- ---%n%n");
-        }
-        }while (!checker);
 
+            float tributos = 0.09f * valorASerPago;
+
+            //NOTA FISCAL
+            System.out.printf("Wipro Store%n" +
+                    "Rua dos Bóbos, nº0 - Digital MarketPlace LTDA%n" +
+                    "CNPJ:9874561230-00%n%n%n" +
+                    "\t\t\tNOTA FISCAL%n" +
+                    "===================================================%n" +
+                    "PRODUTO\t\tQTND.PRODUTOS\t\tPREÇO UNIT.\t\tPREÇO TOTAL%n%n");
+                for (int i = 0; i < carrinhoCodigoProduto.size(); i++) {
+                    System.out.printf("%s\t\t%s\t\t%s\t\t%s%n",
+                            produtos[carrinhoCodigoProduto.get(i)],
+                            carrinhoQuantidade.get(i),
+                            precos[carrinhoCodigoProduto.get(i)],
+                            precos[carrinhoCodigoProduto.get(i)] * carrinhoQuantidade.get(i)
+                    );
+                }
+                    System.out.printf("\n===================================================\n\n\n" +
+                            "DESCONTO NA COMPRA: %s%n" +
+                            "VALOR TOTAL A SER PAGO: %s%n" +
+                            "VALOR TRIBUTÁRIO: %s", desconto, valorASerPago, tributos);
+
+//                valorTotalDeCompra += (precos[carrinhoCodigoProduto.get(i)] * carrinhoQuantidade.get(i));
+                    //              valorImposto = (9.0f / 100.0f) * valorTotalDeCompra;
+        } while (!checker);
+        //NOTA FISCAL
+
+        return checker;
     }
+
+
 
     // METODO FORMAS DE PAGAMENTO
     public static int formasDePagamento(){
