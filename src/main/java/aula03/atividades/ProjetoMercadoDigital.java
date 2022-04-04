@@ -64,6 +64,7 @@ public class ProjetoMercadoDigital {
             Float[] precos,
             ArrayList<Integer> carrinhoCodigoProduto,
             ArrayList<Integer> carrinhoQuantidade) {
+        //Backup da lista estoque;
         Integer[] estoqueCopia = Arrays.copyOf(estoque, estoque.length);
         boolean checker = false;
         do {
@@ -91,10 +92,7 @@ public class ProjetoMercadoDigital {
 
             quantidade = validaEntradaDoUsuarioSeInteiro("\nQTN PROD\nDigite a quantidade que deseja colocar no carrinho: ", "\nERROR - Valor Invalido\nInforme um valor numerico entre 1 a 10", "[0-9]*");
 
-            if (estoque[code] == 0) {
-                System.out.println("A quantidade informada é maior do que o numero disponivel em estoque");
-                continue;
-            } else if (quantidade > estoque[code]) {
+            if (estoque[code] == 0 || quantidade > estoque[code]) {
                 System.out.println("A quantidade informada é maior do que o numero disponivel em estoque");
                 continue;
             } else {
@@ -187,7 +185,7 @@ public class ProjetoMercadoDigital {
                     precos[carrinhoCodigoProduto.get(i)] * carrinhoQuantidade.get(i)
             );
             valorTotalDeCompra += (precos[carrinhoCodigoProduto.get(i)] * carrinhoQuantidade.get(i));
-            valorImposto = (9.0f / 100.0f) * valorTotalDeCompra;
+            //valorImposto = (9.0f / 100.0f) * valorTotalDeCompra;
 
         }
         System.out.printf("%nTOTAL - O valor total da compra R$: %5.2f%n", valorTotalDeCompra);
@@ -266,7 +264,6 @@ public class ProjetoMercadoDigital {
                 "--- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- ---",
                 "[1-3]",
                 "Opção Invalida\nEscolha entre 1 a 4 uma das opções disponiveis para pagamento\n");
-
         return choice;
     }
 
@@ -275,13 +272,13 @@ public class ProjetoMercadoDigital {
         System.out.printf("%n%n\t\t\t BOOTCAMP WIPRO by Gama Academy%n");
         System.out.println("=======================================================================");
         System.out.printf("Desafio de Projeto - Mercado Digital" +
-                "%n%nGRUPO 01%n" +
+                "%n%nGRUPO 06%n" +
                 "\t\tJeferson Gomes%n" +
                 "\t\tThiago Gomes%n" +
-                "\t\tVan-Homel%n" +
-                "\t\tRoberto%n" +
-                "\t\t--- --- ---%n" +
-                "\t\t--- --- ---%n");
+                "\t\tVan-Romel Neto%n" +
+                "\t\tRenato Marques%n" +
+                "\t\tRoberto Thomé%n" +
+                "\t\tEzau Martins%n");
         System.out.println("=======================================================================\n\n");
 
     }

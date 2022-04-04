@@ -4,10 +4,12 @@
 Atividades da Aula 03
 
 ### Grupo 06
-- Jeferson Gomes
-- Van-Romeu
-- Thiago
-- Roberto
+- Jeferson Gomes 
+- Thiago Gomes 
+- Van-Romel Neto
+- Renato Marques
+- Roberto Thomé
+- Ezau Martins
 
 ### Criar uma Loja virtual com Carrinho de Compras!!!
 
