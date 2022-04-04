@@ -50,7 +50,9 @@ public class ProjetoMercadoDigital {
         ArrayList<Integer> carrinhoCodigoProduto = new ArrayList<>();
         ArrayList<Integer> carrinhoQuantidade = new ArrayList<>();
 
-        pratileiraMercado(produtos,estoque,precos,carrinhoCodigoProduto,carrinhoQuantidade);
+        presentation();
+        pratileiraMercado(produtos, estoque, precos, carrinhoCodigoProduto, carrinhoQuantidade);
+
 
     }
 
