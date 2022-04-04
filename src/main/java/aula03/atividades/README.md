@@ -11,7 +11,7 @@ Atividades da Aula 03
 
 ### Criar uma Loja virtual com Carrinho de Compras!!!
 
-|   |   |
+| Imagens conceituais  | Projeto modelo dos professores  |
 | ------------------- | ------------------- |
 | ![image](https://user-images.githubusercontent.com/10172471/161455569-6900150c-3715-45cf-963f-3edb35bc4e27.png)|![image (1)](https://user-images.githubusercontent.com/10172471/161455572-f0bed8ad-f8d2-4ca1-bfec-b1be320e8544.png) |
 | ![image (2)](https://user-images.githubusercontent.com/10172471/161455576-f3ad56a3-d78c-4e14-9b71-30cc5a6599e5.png)|![image (3)](https://user-images.githubusercontent.com/10172471/161455584-b38c6e51-e49e-49d4-a1e0-3432fa6f05ba.png) |
