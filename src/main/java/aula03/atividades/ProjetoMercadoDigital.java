@@ -72,12 +72,12 @@ public class ProjetoMercadoDigital {
             int code = 0, quantidade = 0;
 
             System.out.printf("%n\t\t\t WIPRO STORE%n");
-            System.out.println("--- --- --- --- --- --- --- --- --- --- --- ---");
+            System.out.println("=======================================================================");
             System.out.printf("CODIGO\t\tPRODUTO \t QUANTIDADE \t PREÇO %n");
             for (int x = 0; x < produtos.length; x++) {
-                System.out.printf("  %s \t\t %s\t\t\t %s \t\t %5.2f%n", x + 1, produtos[x], estoque[x], precos[x]);
+                System.out.printf("%s\t\t\t %s\t\t\t%s\t\t\t%5.2f %n", x + 1, produtos[x], estoque[x], precos[x]);
             }
-            System.out.printf("--- --- --- --- --- --- --- --- --- --- --- ---\n");
+            System.out.printf("=======================================================================\n");
 
             code = validaEntradaDoUsuarioSeInteiro("\nCOD PROD\nDigite o código do produto desejado: ", "\nERROR - Valor Invalido\nO valor digitado não corresponde a nenhum produto da prateleira!\nInforme um valor numerico entre 1 a 10", "[0-9]*");
             code -= 1;
@@ -105,8 +105,8 @@ public class ProjetoMercadoDigital {
                 estoque[code] -= quantidade;
             }
 
-            System.out.println("Deseja continuar as compras?");
-            System.out.printf("--- --- --- --- --- --- --- --- --- ---%n");
+            System.out.println("\nDeseja continuar as compras?\n");
+            System.out.printf("--- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- ---%n");
             choice = validaEntradaDoUsuarioSeInteiro(
             "Opção Invalida",
             "[1] - Incluir mais itens no seu carrido.\n[2] - Ir para carrinho de compras e formas de pagamento.\n",
@@ -192,7 +192,6 @@ public class ProjetoMercadoDigital {
             System.out.printf("%s\t\t%s\t\t%s\t\t%s%n",
                     produtos[carrinhoCodigoProduto.get(i)],
                     precos[carrinhoCodigoProduto.get(i)],
-                    carrinhoQuantidade.get(i),
                     precos[carrinhoCodigoProduto.get(i)] * carrinhoQuantidade.get(i)
             );
             valorTotalDeCompra += (precos[carrinhoCodigoProduto.get(i)] * carrinhoQuantidade.get(i));
@@ -206,7 +205,7 @@ public class ProjetoMercadoDigital {
         System.out.printf("%n%n--- --- --- --- --- --- --- --- --- ---%n" +
                 "[1] - Escolher forma de pagamento. %n" +
                 "[2] - Cancelar compra e esvaziar carrinho. %n" +
-                "--- --- --- --- --- --- --- --- --- ---%n%n");
+                "--- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- ---%n");
         float desconto = 0.0f;
         float valorASerPago = 0.0f;
         boolean checker = false;
@@ -232,15 +231,15 @@ public class ProjetoMercadoDigital {
                 } else if (choice.matches("2")) {
                     carrinhoCodigoProduto.clear();
                     carrinhoQuantidade.clear();
-                    System.out.println("Carrinho limpo com sucesso - Obrigado volte sempre");
+                    System.out.println("\nCarrinho limpo com sucesso - Obrigado volte sempre\n\n");
                     checker = true;
                 }
             } else {
                 System.out.println("Valor informado não aceito");
-                System.out.printf("%n%n--- --- --- --- --- --- --- --- --- ---%n" +
+                System.out.printf("%n%n--- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- ---%n" +
                         "[1] - Escolher forma de pagamento. %n" +
                         "[2] - Cancelar compra e esvaziar carrinho. %n" +
-                        "--- --- --- --- --- --- --- --- --- ---%n%n");
+                        "--- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- ---%n%n");
             }
 
             float tributos = 0.09f * valorASerPago;
@@ -249,9 +248,9 @@ public class ProjetoMercadoDigital {
             System.out.printf("Wipro Store%n" +
                     "Rua dos Bóbos, nº0 - Digital MarketPlace LTDA%n" +
                     "CNPJ:9874561230-00%n%n%n" +
-                    "\t\t\tNOTA FISCAL%n" +
-                    "===================================================%n" +
-                    "PRODUTO\t\tQTND.PRODUTOS\t\tPREÇO UNIT.\t\tPREÇO TOTAL%n%n");
+                    "NOTA FISCAL" +
+                    "%n=======================================================================%n" +
+                    "PRODUTO\t\t QTND.PRODUTOS\t\t PREÇO UNIT.\t\t PREÇO TOTAL%n");
                 for (int i = 0; i < carrinhoCodigoProduto.size(); i++) {
                     System.out.printf("%s\t\t%s\t\t%s\t\t%s%n",
                             produtos[carrinhoCodigoProduto.get(i)],
@@ -260,15 +259,15 @@ public class ProjetoMercadoDigital {
                             precos[carrinhoCodigoProduto.get(i)] * carrinhoQuantidade.get(i)
                     );
                 }
-                    System.out.printf("\n===================================================\n\n\n" +
+                    System.out.printf("=======================================================================\n\n" +
                             "DESCONTO NA COMPRA: R$ %5.2f%n" +
                             "VALOR TOTAL A SER PAGO: R$ %5.2f%n" +
                             "VALOR TRIBUTÁRIO: R$ %5.2f", desconto, valorASerPago, tributos);
+                    System.out.printf("\n=======================================================================\n\n");
+
         } while (!checker);
         return checker;
     }
-
-
 
     // METODO FORMAS DE PAGAMENTO
     public static int formasDePagamento(){
@@ -282,5 +281,21 @@ public class ProjetoMercadoDigital {
                 "[1-3]");
 
         return choice;
+    }
+
+    //METODO DE APRESENTAÇÃO
+    public static void presentation(){
+        System.out.printf("%n%n\t\t\t BOOTCAMP WIPRO by Gama Academy%n");
+        System.out.println("=======================================================================");
+        System.out.printf("Desafio de Projeto - Mercado Digital" +
+                "%n%nGRUPO 01%n" +
+                "\t\tJeferson Gomes%n" +
+                "\t\tThiago Gomes%n" +
+                "\t\tVan-Homel%n" +
+                "\t\tRoberto%n" +
+                "\t\t--- --- ---%n" +
+                "\t\t--- --- ---%n");
+        System.out.println("=======================================================================\n\n");
+
     }
 }
