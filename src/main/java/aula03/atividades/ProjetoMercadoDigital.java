@@ -73,7 +73,7 @@ public class ProjetoMercadoDigital {
             System.out.println("--- --- --- --- --- --- --- --- --- --- --- ---");
             System.out.printf("CODIGO\t\tPRODUTO \t QUANTIDADE \t PREÇO %n");
             for (int x = 0; x < produtos.length; x++) {
-                System.out.printf("  %s \t\t %s\t\t\t %s \t\t %s %n", x + 1, produtos[x], estoque[x], precos[x]);
+                System.out.printf("  %s \t\t %s\t\t\t %s \t\t %5.2f%n", x + 1, produtos[x], estoque[x], precos[x]);
             }
             System.out.printf("--- --- --- --- --- --- --- --- --- --- --- ---\n");
 
@@ -209,7 +209,6 @@ public class ProjetoMercadoDigital {
         float valorASerPago = 0.0f;
         boolean checker = false;
         do {
-
             Scanner sc = new Scanner(System.in);
             String choice = sc.next();
         if (choice.matches("[1-2]*"))
@@ -244,7 +243,7 @@ public class ProjetoMercadoDigital {
 
             float tributos = 0.09f * valorASerPago;
 
-            //NOTA FISCAL
+            //IMPRIMINDO NOTA FISCAL
             System.out.printf("Wipro Store%n" +
                     "Rua dos Bóbos, nº0 - Digital MarketPlace LTDA%n" +
                     "CNPJ:9874561230-00%n%n%n" +
@@ -260,15 +259,10 @@ public class ProjetoMercadoDigital {
                     );
                 }
                     System.out.printf("\n===================================================\n\n\n" +
-                            "DESCONTO NA COMPRA: %s%n" +
-                            "VALOR TOTAL A SER PAGO: %s%n" +
-                            "VALOR TRIBUTÁRIO: %s", desconto, valorASerPago, tributos);
-
-//                valorTotalDeCompra += (precos[carrinhoCodigoProduto.get(i)] * carrinhoQuantidade.get(i));
-                    //              valorImposto = (9.0f / 100.0f) * valorTotalDeCompra;
+                            "DESCONTO NA COMPRA: R$ %5.2f%n" +
+                            "VALOR TOTAL A SER PAGO: R$ %5.2f%n" +
+                            "VALOR TRIBUTÁRIO: R$ %5.2f", desconto, valorASerPago, tributos);
         } while (!checker);
-        //NOTA FISCAL
-
         return checker;
     }
 
