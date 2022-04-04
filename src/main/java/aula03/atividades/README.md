@@ -29,7 +29,7 @@ pagamento.
 ### ESTOQUE
 ![image](https://user-images.githubusercontent.com/10172471/161419717-58c7b625-e30c-4ac0-a5a0-0aba39b9e0be.png)
 - [x] A nossa loja deve conter estoque;
-- [ ] Caso produto esteja indisponível deve retornar a mensagem para o cliente “Produto Indisponível”;
+- [x] Caso produto esteja indisponível deve retornar a mensagem para o cliente “Produto Indisponível”;
 
 ### FORMAS DE PAGAMENTO
 ![image](https://user-images.githubusercontent.com/10172471/161419807-91ebd605-db80-428a-a3ba-451c99f20829.png)
@@ -39,7 +39,7 @@ pagamento.
 - [x] Parcelado em até 3x não tem desconto;
 
 ### RETORNO DE NOTA FISCAL
-- [ ] Deve retornar a nota fiscal com o valor pago de tributos de 9% sobre a compra
+- [x] Deve retornar a nota fiscal com o valor pago de tributos de 9% sobre a compra
 ATENÇÂO: (Esse valor não deve ser somado ao total do carrinho, somente ser exibido na nota fiscal);
 
 ### OBSERVAÇÕES FINAIS
