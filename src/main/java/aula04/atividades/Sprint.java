@@ -54,8 +54,13 @@ public abstract class Sprint {
              double area (double a, double b);
          }
 
-     [x] Crie as classes que representem: círculo, retângulo, quadrado e triangulo retângulo,
-     [ ] implementando a interface FormaGeometrica e crie métodos para o cálculo da área
+     [x] Crie as classes que representem:
+     [x] círculo
+     [x] retângulo
+     [x] quadrado
+     [x] triangulo retângulo,
+
+     [x] implementando a interface FormaGeometrica e crie métodos para o cálculo da área
      especifico de cada forma geométrica;
 
      === === === === === === === === === === === === === === ===
