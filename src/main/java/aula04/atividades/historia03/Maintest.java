@@ -12,7 +12,11 @@ public class Maintest {
         meuQuadrado.calculoDeArea();
         meuTriangulo.calculoDeArea();
 
-        meuQuadrado.area(12,3,4);
+        meuQuadrado.area(12);
+        meuQuadrado.area(52);
+
+        meuTriangulo.imprimeArea(4,2);
+        meuQuadrado.imprimeArea(5);
     }
 
 }
