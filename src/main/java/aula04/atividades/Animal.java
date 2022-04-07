@@ -1,22 +1,21 @@
-# Java Wipro Bootcamp 2022
+package aula04.atividades;
 
-## Atividades da Aula 04
+public abstract class Animal {
 
-### Squad 07
-- Jeferson Gomes 
-- Jeferson vieira Favero
-- Leonardo M Silva
-- Ederson M Melo
-- Israel Lima Dias
-- Nathalie Bozzon
 
-Exercícios POO
-1) Crie uma classe Televisao e uma classe ControleRemoto que pode controlar o volume e
-trocar os canais da televisão. O controle de volume permite:
-▪ aumentar ou diminuir a potência do volume de som em uma unidade de cada vez;
-▪ aumentar e diminuir o número do canal em uma unidade
-▪ trocar para um canal indicado;
-▪ consultar o valor do volume de som e o canal selecionado.
+    /***
+
+     Requisitos:
+
+     Exercícios POO
+
+     1) Crie uma classe Televisao e uma classe ControleRemoto que pode controlar o volume e
+     trocar os canais da televisão.
+     O controle de volume permite:
+     ▪ aumentar ou diminuir a potência do volume de som em uma unidade de cada vez;
+     ▪ aumentar e diminuir o número do canal em uma unidade
+     ▪ trocar para um canal indicado;
+     ▪ consultar o valor do volume de som e o canal selecionado.
 
      2) Escreva uma classe cujos objetos representam alunos matriculados em uma disciplina.
      Cada objeto dessa classe deve guardar os seguintes dados do aluno: matrícula, nome,
@@ -38,8 +37,6 @@ trocar os canais da televisão. O controle de volume permite:
 
      4) Dada a Classe Funcionário:
 
-
-
      Funcionario
      nome: String
      cpf:String
@@ -51,21 +48,20 @@ trocar os canais da televisão. O controle de volume permite:
      +setCpf(String): void
      +setSaladio(double):void
      +bonus(double)
+
      Crie 2 tipos distintos de funcionários, cada um com seus respectivos bônus.
 
+     ***/
 
-![img.png](img.png)
 
-![img.png](img.png)
+    //Atributos
 
-- [ ] 1. Crie uma estrutura de herança para demonstrar o polimorfismo utilizando classes de animais.
+    //Construtores
 
-- [ ] 2. Crie o método comunicar() e movimentar() na classe Animal.
+    //Getters and Setters
 
-- [ ] 3. Nas classes descendentes de animais, sobrescreva os métodos citados de acordo com os tipos de animais.
+    //metodos
+   // Crie o método comunicar() e movimentar() na classe Animal.
 
-#
 
-By Gama Academy
-</br>
-![image](https://user-images.githubusercontent.com/10172471/161184424-a619d9bb-208e-4a94-913a-79156d2f1fc0.png)
+}
